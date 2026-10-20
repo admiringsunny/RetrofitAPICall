@@ -13,6 +13,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.learn.retrofitapicall.models.Address
@@ -61,27 +62,23 @@ fun UserCard(user: User = dummyUser) {
                 modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(4.dp)
-            ){
+            ) {
                 Text(
                     text = "Company:",
                     style = MaterialTheme.typography.titleSmall
                 )
                 Text("${user.company.name}")
             }
+            Text(
+                text = "${user.company.catchPhrase}",
+                fontStyle = FontStyle.Italic
+            )
+
+            Spacer(modifier = Modifier.height(4.dp))
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(4.dp)
-            ){
-                Text(
-                    text = "Catch Phrase: ",
-                    style = MaterialTheme.typography.titleSmall
-                )
-                Text("${user.company.catchPhrase}")
-            }
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(4.dp)
-            ){
+            ) {
                 Text(
                     text = "Business:",
                     style = MaterialTheme.typography.titleSmall
@@ -91,7 +88,7 @@ fun UserCard(user: User = dummyUser) {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(4.dp)
-            ){
+            ) {
                 Text(
                     text = "Website:",
                     style = MaterialTheme.typography.titleSmall
